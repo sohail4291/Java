@@ -553,153 +553,156 @@
 //         }
 //     }
 // }
-public class Arrays{
-    class Node{
-        private int data;
-        private Node next;
-        Node(int data){
-            this.data = data;
-        }
-    }
-    private Node head;
+// public class Arrays{
+//     class Node{
+//         private int data;
+//         private Node next;
+//         Node(int data){
+//             this.data = data;
+//         }
+//     }
+//     private Node head;
 
-    public void insertBegin(int data){
-        Node newnode = new Node(data);
-        newnode.next = head;
-        head = newnode;
-    }
+//     public void insertBegin(int data){
+//         Node newnode = new Node(data);
+//         newnode.next = head;
+//         head = newnode;
+//     }
 
-    public void insertEnd(int data){
-        Node newnode = new Node(data);
-        if(head == null){
-            head = newnode;
-            return;
-        }
-        Node temp = head;
-        while(temp.next != null){
-            temp = temp.next;
-        }
-        temp.next = newnode; 
-    }
+//     public void insertEnd(int data){
+//         Node newnode = new Node(data);
+//         if(head == null){
+//             head = newnode;
+//             return;
+//         }
+//         Node temp = head;
+//         while(temp.next != null){
+//             temp = temp.next;
+//         }
+//         temp.next = newnode; 
+//     }
 
-    public void insertAtPosition(int pos, int data){
-       if(pos < 1){
-        System.out.println(" pos must be > than 1");
-        return ;
-       }
-       Node newnode = new Node(data);
-       Node temp = head;
-       for(int i=0; i< pos -1 & temp!=null; i++){
-        temp = temp.next;
-       }
-       if(temp == null){
-        System.out.println("Index out of bound.");
-        return;
-       }
-       newnode.next = temp.next;
-       temp.next = newnode;
+//     public void insertAtPosition(int pos, int data){
+//        if(pos < 1){
+//         System.out.println(" pos must be > than 1");
+//         return ;
+//        }
+//        Node newnode = new Node(data);
+//        Node temp = head;
+//        for(int i=0; i< pos -1 & temp!=null; i++){
+//         temp = temp.next;
+//        }
+//        if(temp == null){
+//         System.out.println("Index out of bound.");
+//         return;
+//        }
+//        newnode.next = temp.next;
+//        temp.next = newnode;
 
-    }
-    public void display(){
-         Node temp  = head;
-        while(temp != null){
-            System.out.print(temp.data+" -> ");
-            temp = temp.next;
-        }
-        System.out.println("Null");
-        }
+//     }
+//     public void display(){
+//          Node temp  = head;
+//         while(temp != null){
+//             System.out.print(temp.data+" -> ");
+//             temp = temp.next;
+//         }
+//         System.out.println("Null");
+//         }
     
-    public void deleteBegin(){
-        Node temp = head;
-        if(head == null){
-            return;
-        }
-        head = head.next;
-    }
-    public void deleteEnd(){
-        Node temp = head;
-        if(head == null){
-            return;
-        }
-        while(temp.next.next != null){
-            temp = temp.next;
-        }
-        temp.next = null;
-    }
+//     public void deleteBegin(){
+//         Node temp = head;
+//         if(head == null){
+//             return;
+//         }
+//         head = head.next;
+//     }
+//     public void deleteEnd(){
+//         Node temp = head;
+//         if(head == null){
+//             return;
+//         }
+//         while(temp.next.next != null){
+//             temp = temp.next;
+//         }
+//         temp.next = null;
+//     }
 
-    public void deleteAtPosition(int pos){
-        if(pos < 1){
-            System.out.println("pos must be > 0");
-            return;
-        }
-        Node temp = head;
-        for(int i=0; i<pos-1 && temp != null; i++){
-            temp  = temp.next;
-        }
-        if(temp == null || temp.next == null){
-            System.out.println("Index out of bound");
-            return;
-        }
-        temp.next = temp.next.next;
-    }
+//     public void deleteAtPosition(int pos){
+//         if(pos < 1){
+//             System.out.println("pos must be > 0");
+//             return;
+//         }
+//         Node temp = head;
+//         for(int i=0; i<pos-1 && temp != null; i++){
+//             temp  = temp.next;
+//         }
+//         if(temp == null || temp.next == null){
+//             System.out.println("Index out of bound");
+//             return;
+//         }
+//         temp.next = temp.next.next;
+//     }
 
-    public boolean search(int key){
-        Node temp = head;
-        while(temp != null){
-            if(temp.data == key){
-                return true;
-            }
-            temp = temp.next;
-        }
-        return false;
-    }
+//     public boolean search(int key){
+//         Node temp = head;
+//         while(temp != null){
+//             if(temp.data == key){
+//                 return true;
+//             }
+//             temp = temp.next;
+//         }
+//         return false;
+//     }
 
-    public int size(){
-        Node temp = head;
-        int count = 0;
-        while(temp != null){
-            count += 1;
-            temp = temp.next;
-        }
-        return count;
-    }
-    public boolean isEmpty(){
-        return head == null;
-    }
+//     public int size(){
+//         Node temp = head;
+//         int count = 0;
+//         while(temp != null){
+//             count += 1;
+//             temp = temp.next;
+//         }
+//         return count;
+//     }
+//     public boolean isEmpty(){
+//         return head == null;
+//     }
 
-    public void reverseList(){
-        Node prev = null;
-        Node current = head;
-        Node next = null;
-        while(current != null){
-            next = current.next;
-            current.next = prev;
-            prev  = current;
-            current = next;
+//     public void reverseList(){
+//         Node prev = null;
+//         Node current = head;
+//         Node next = null;
+//         while(current != null){
+//             next = current.next;
+//             current.next = prev;
+//             prev  = current;
+//             current = next;
             
-        }
-        head = prev;
-    }
+//         }
+//         head = prev;
+//     }
 
-    public static void main(String[] args){
-        Arrays linklist = new Arrays();
-        linklist.insertBegin(10);
-        linklist.insertBegin(5);
-        linklist.insertEnd(20);
-        linklist.insertAtPosition(2,15);
-        // linklist.deleteBegin();
-        // linklist.deleteEnd();
-        linklist.display();
-        linklist.deleteAtPosition(2);
-        linklist.display();
-        boolean b = linklist.search(20);
-        System.out.println(b);
-        int s = linklist.size();
-        System.out.println(s);
-        boolean empty = linklist.isEmpty();
-        System.out.println(empty);
-        linklist.reverseList();
-        linklist.display();
+//     public static void main(String[] args){
+//         Arrays linklist = new Arrays();
+//         linklist.insertBegin(10);
+//         linklist.insertBegin(5);
+//         linklist.insertEnd(20);
+//         linklist.insertAtPosition(2,15);
+//         // linklist.deleteBegin();
+//         // linklist.deleteEnd();
+//         linklist.display();
+//         linklist.deleteAtPosition(2);
+//         linklist.display();
+//         boolean b = linklist.search(20);
+//         System.out.println(b);
+//         int s = linklist.size();
+//         System.out.println(s);
+//         boolean empty = linklist.isEmpty();
+//         System.out.println(empty);
+//         linklist.reverseList();
+//         linklist.display();
 
-    }
-}
+//     }
+// }
+
+
+
